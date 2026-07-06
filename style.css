@@ -14,7 +14,6 @@ html {
 }
 
 body {
-  background: pink;
   margin: 0;
   height:100%;
 }
@@ -25,7 +24,10 @@ body {
 
 h1,
 h2,
+h3,
 ul,
+dl,
+dd,
 p {
   margin: 0;
 }
@@ -39,10 +41,15 @@ img {
   vertical-align: bottom;
 }
 
-#about,
-#tour-plan {
+
+.about-inner,
+.tour-plan-inner,
+.news-inner,
+.contact-inner,
+.footer-inner {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 120px 32px;
 }
 
 
@@ -50,7 +57,10 @@ img {
 #hero {
   position: relative;
   width: 100%;
-  height: 1024px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background: url(images/hero.png) center/ cover no-repeat;
 }
 
@@ -116,8 +126,7 @@ img {
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.8);
 }
 
-#about {
-  margin: 120px auto;
+#about .about-inner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,26 +134,26 @@ img {
   background: white;
 }
 
-#about .about-text {
+#about .about-inner .about-text {
   min-width: 480px;
 }
 
-#about .about-text h2 {
+#about .about-inner .about-text h2 {
   font-size: 3.6em;
   font-weight: 500;
 }
 
-#about .about-text p {
+#about .about-inner .about-text p {
   margin-top: 40px;
   font-size: 16px;
   line-height: 1.5;
 }
 
-#about .about-text p + p {
+#about .about-inner .about-text p + p {
   margin-top: 16px;
 }
 
-#about .about-text ul.tags {
+#about .about-inner .about-text ul.tags {
   margin-top: 40px;
   display: flex;
   justify-content: start;
@@ -153,62 +162,257 @@ img {
   color: #D8D8D8;
 }
 
-#about .about-text ul.tags .tag {
+#about .about-inner .about-text ul.tags .tag {
   border: 1px solid #D8D8D8;
   border-radius: 999px;
   padding: 8px 16px;
   cursor: default;
 }
 
-#tour-plan {
-  background: #6A9B9D;
-  padding: 120px 36px;
+#about .about-inner .about-img img {
+  width: 880px;
+  max-width: 100%;
+  height: auto;
 }
 
-#tour-plan .tour-plan-title {
+#tour-plan {
+  background: #6A9B9D;
+}
+
+#tour-plan .tour-plan-inner .tour-plan-title {
   display: flex;
   justify-content: start;
 }
 
-#tour-plan .tour-plan-title i {
+#tour-plan .tour-plan-inner .tour-plan-title i {
   font-size: 3.6em;
   margin-right: 16px;
   color: white;
 }
 
-#tour-plan .tour-plan-title h2 {
+#tour-plan .tour-plan-inner .tour-plan-title h2 {
   font-size: 3.6em;
   font-weight: 500;
   color: white;
 }
 
-#tour-plan .course {
+#tour-plan .tour-plan-inner .course {
   margin-top: 80px;
   display: flex;
   justify-content: center;
 }
 
-#tour-plan .course .course-item {
+#tour-plan .tour-plan-inner .course .course-item {
   text-decoration: none;
 }
 
-#tour-plan .course .course-item:hover {
+#tour-plan .tour-plan-inner .course .course-item:hover {
   opacity: 0.8;
 }
 
-#tour-plan .course .course-item + .course-item {
+#tour-plan .tour-plan-inner .course .course-item + .course-item {
   margin-left: 24px;
 }
 
-#tour-plan .course .course-item img {
+#tour-plan .tour-plan-inner .course .course-item img {
   width: 200px;
   height: 200px;
-  border-radius: 999px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-#tour-plan .course .course-item p {
+#tour-plan .tour-plan-inner .course .course-item p {
   text-align: center;
   color: white;
   margin-top: 24px;
   font-size: 1.6em;
+}
+
+
+
+
+
+
+
+
+
+
+#news .news-inner {
+  display: flex;
+  justify-content: center;
+  background: white;
+}
+
+#news .news-inner h2 {
+  font-size: 3.6em;
+  font-family: var(--font-title);
+  margin-right: 40px;
+}
+
+#news .news-inner .news-container {
+  width: 900px;
+}
+
+#news .news-inner .news-container .news-tabs {
+  display: flex;
+}
+
+#news .news-inner .news-container .news-tabs li a {
+  display: inline-block;
+  font-size: 2.4em;
+  text-decoration: none;
+  color: inherit;
+}
+
+#news .news-inner .news-container .news-tabs li.active a {
+  border-bottom: 4px solid var(--corporate-color);
+}
+
+#news .news-inner .news-container .news-tabs li {
+  padding: 0 16px 16px;
+  margin-right: 16px;
+}
+
+#news .news-inner .news-container .news-tabs li:not(.active) {
+  opacity: 0.6;
+}
+
+#news .news-inner .news-container .content {
+  display: none;
+  border-top: 1px solid var(--corporate-color);
+  border-bottom: 1px solid var(--corporate-color);
+}
+
+#news .news-inner .news-container .content.active {
+  display: block;
+}
+
+#news .news-inner .news-container .content dl + dl {
+  border-top: 1px dotted var(--corporate-color);
+}
+
+#news .news-inner .news-container .content dl {
+  display: flex;
+  font-size: 1.6em;
+  padding: 16px;
+}
+
+#news .news-inner .news-container .content dl dt {
+  margin-right: 16px;
+}
+
+#contact {
+  position: relative;
+  background: url(images/Contact.png) center/cover no-repeat;
+  overflow: hidden;
+}
+
+#contact::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#contact .contact-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact .contact-inner .contact-logos {
+  text-align: center;
+  flex: 1;
+}
+
+#contact .contact-inner .contact-logos p {
+  margin-top: 40px;
+  font-size: 1.6em;
+  color: white;
+}
+
+#contact .contact-inner .contact-form {
+  flex: 1;
+  text-align: center;
+}
+
+#contact .contact-inner .contact-form a {
+  display: inline-block;
+  width: 500px;
+  padding: 16px;
+  font-size: 1.6em;
+  background: var(--corporate-color);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+#contact .contact-inner .contact-form a:hover {
+  background: #9CCAC2;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  background: var(--corporate-color);
+}
+
+footer .footer-inner {
+  padding-bottom: 32px;
+}
+
+footer .footer-title {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #fff;
+}
+
+footer h2 {
+  font-family: var(--font-title);
+  font-size: 3.6em;
+  font-weight: 500;
+}
+
+footer .footer-contact {
+  display: inline-block;
+  text-align: left;
+  margin: 16px auto 0;
+}
+
+footer .footer-contact h3 {
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
+footer .footer-contact p {
+  font-size: 1.6em;
+}
+
+footer .footer-sns {
+  margin-top: 80px;
+}
+
+footer .footer-sns a {
+  text-decoration: none;
+  color: white;
+}
+
+footer .footer-sns a:hover {
+  opacity: 0.8;
+}
+
+footer .footer-sns a i {
+  font-size: 5.0em;
+}
+
+footer .footer-sns a + a {
+  margin-left: 32px;
+}
+
+footer small {
+  display: block;
+  margin-top: 80px;
+  font-size: 1.4em;
 }
