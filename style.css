@@ -24,13 +24,28 @@ body {
 }
 
 h1,
+h2,
+ul,
 p {
   margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 img {
   vertical-align: bottom;
 }
+
+#about,
+#tour-plan {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+
 
 #hero {
   position: relative;
@@ -58,13 +73,12 @@ img {
   color: white;
   text-decoration: none;
   line-height: 1;
-  background: rgba(0, 0, 0, 30%);
-  border-radius: 8px;
 }
 
 #hero header #menu a i{
   display: block;
-  font-size: 4.1em;
+  font-size: 5.0em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, .25);
 }
 
 #hero .hero-text {
@@ -100,4 +114,101 @@ img {
   display: inline-block;
   margin-top: 48px;
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+#about {
+  margin: 120px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: white;
+}
+
+#about .about-text {
+  min-width: 480px;
+}
+
+#about .about-text h2 {
+  font-size: 3.6em;
+  font-weight: 500;
+}
+
+#about .about-text p {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#about .about-text p + p {
+  margin-top: 16px;
+}
+
+#about .about-text ul.tags {
+  margin-top: 40px;
+  display: flex;
+  justify-content: start;
+  gap: 16px;  
+  font-size: 16px;
+  color: #D8D8D8;
+}
+
+#about .about-text ul.tags .tag {
+  border: 1px solid #D8D8D8;
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: default;
+}
+
+#tour-plan {
+  background: #6A9B9D;
+  padding: 120px 36px;
+}
+
+#tour-plan .tour-plan-title {
+  display: flex;
+  justify-content: start;
+}
+
+#tour-plan .tour-plan-title i {
+  font-size: 3.6em;
+  margin-right: 16px;
+  color: white;
+}
+
+#tour-plan .tour-plan-title h2 {
+  font-size: 3.6em;
+  font-weight: 500;
+  color: white;
+}
+
+#tour-plan .course {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+#tour-plan .course .course-item {
+  text-decoration: none;
+}
+
+#tour-plan .course .course-item:hover {
+  opacity: 0.8;
+}
+
+#tour-plan .course .course-item + .course-item {
+  margin-left: 24px;
+}
+
+#tour-plan .course .course-item img {
+  width: 200px;
+  height: 200px;
+  border-radius: 999px;
+}
+
+#tour-plan .course .course-item p {
+  text-align: center;
+  color: white;
+  margin-top: 24px;
+  font-size: 1.6em;
 }
