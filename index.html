@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corporate Site</title>
+  <title>KAMIKOCHI OUTDOOR TRAVEL</title>
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +16,23 @@
 <body>
   <section id="hero">
     <header>
-      <div class="logo"><a href="#hero"><img src="images/logo.svg" width="80" height="80" alt="KAMIKOCHI OUTDOOR TRAVEL ロゴ"></a></div>
-      <button id="menu" type="button"><i class="bi bi-list"></i></button>
+      <div class="logo"><a href="#hero"><img src="images/logo.svg" width="80" height="80"
+            alt="KAMIKOCHI OUTDOOR TRAVEL ロゴ"></a></div>
+      <button id="menu" type="button">
+        <i class="bi bi-list active" id="menu-open"></i>
+      </button>
     </header>
+    <nav class="overlay" id="hamburger-menu">
+      <i class="bi bi-x-lg" id="menu-close"></i>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#tour-plan">旅の目的・テーマから選ぶ</a></li>
+        <li><a href="#popular-spot">人気スポットを知る</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#news">NEWS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
     <div class="hero-text">
       <h1>KAMIKOCHI<br>OUTDOOR TRAVEL</h1>
       <p>四季折々の上高地を、あなたの旅に。</p>
