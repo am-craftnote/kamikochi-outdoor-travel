@@ -1,6 +1,57 @@
 'use strict';
 
 {
+  // mask共通
+  const mask = document.querySelector('#mask');
+
+  mask.addEventListener('click', () => {
+    mask.classList.add('hidden');
+    document.querySelectorAll('.gallery-modal').forEach(modal => {
+      modal.classList.add('hidden');
+    });
+    document.querySelectorAll('.popular-spot-modal').forEach(modal => {
+      modal.classList.add('hidden');
+    });
+    contactModal.classList.add('hidden');
+  });
+
+  // Popular Spot Modal
+  const popularSpotOpen = document.querySelectorAll('.popular-spot-open');
+  const popularSpotClose = document.querySelectorAll('.popular-spot-close');
+
+  popularSpotOpen.forEach(clickedItem => {
+    clickedItem.addEventListener('click', () => {
+      const modal = document.querySelector('#' + clickedItem.dataset.id);
+      modal.classList.remove('hidden');
+      mask.classList.remove('hidden');
+    });
+  });
+  popularSpotClose.forEach(closeButton => {
+    closeButton.addEventListener('click', () => {
+      closeButton.closest('.popular-spot-modal').classList.add('hidden');
+      mask.classList.add('hidden');
+    });
+  });
+
+  // Gallery Modal
+  const galleryOpen = document.querySelectorAll('.gallery-open');
+  const galleryClose = document.querySelectorAll('.gallery-close');
+
+  galleryOpen.forEach(clickedItem => {
+    clickedItem.addEventListener('click', () => {
+      const modal = document.querySelector('#' + clickedItem.dataset.id);
+      modal.classList.remove('hidden');
+      mask.classList.remove('hidden');
+    });
+  });
+  galleryClose.forEach(closeButton => {
+    closeButton.addEventListener('click', () => {
+      closeButton.closest('.gallery-modal').classList.add('hidden');
+      mask.classList.add('hidden');
+    });
+  });
+
+  
   // NEWS
   const tabsButton = document.querySelectorAll('.news-tabs li button');
   const newsContents = document.querySelectorAll('.news-container .content')
@@ -20,35 +71,6 @@
       });
 
       document.querySelector('#' + clickButton.dataset.id).classList.add('active');
-    });
-  });
-
-  // mask共通
-  const mask = document.querySelector('#mask');
-
-  mask.addEventListener('click', () => {
-    mask.classList.add('hidden');
-    document.querySelectorAll('.gallery-modal').forEach(modal => {
-      modal.classList.add('hidden');
-    });
-    contactModal.classList.add('hidden');
-  });
-
-  // Gallery Modal
-  const galleryOpen = document.querySelectorAll('.gallery-open');
-  const galleryClose = document.querySelectorAll('.gallery-close');
-
-  galleryOpen.forEach(clickedItem => {
-    clickedItem.addEventListener('click', () => {
-      const modal = document.querySelector('#' + clickedItem.dataset.id);
-      modal.classList.remove('hidden');
-      mask.classList.remove('hidden');
-    });
-  });
-  galleryClose.forEach(closeButton => {
-    closeButton.addEventListener('click', () => {
-      closeButton.closest('.gallery-modal').classList.add('hidden');
-      mask.classList.add('hidden');
     });
   });
 
