@@ -129,26 +129,26 @@
           <h2>Gallery</h2>
         </div>
         <div class="gallery-container">
-          <a href="#" class="gallery-item gallery-item1">
+          <div class="gallery-item gallery-item1 gallery-open" data-id="gallery-modal1">
             <div class="white-bg">
               <p>遊歩道に設置された巨大な鈴！</p>
             </div>
-          </a>
-          <a href="#" class="gallery-item gallery-item2">
+          </div>
+          <div class="gallery-item gallery-item2 gallery-open" data-id="gallery-modal2">
             <div class="white-bg">
               <p>小人のようなコケ</p>
             </div>
-          </a>
-          <a href="#" class="gallery-item gallery-item3">
+          </div>
+          <div class="gallery-item gallery-item3 gallery-open" data-id="gallery-modal3">
             <div class="white-bg">
               <p>特別名勝 特別記念物碑</p>
             </div>
-          </a>
-          <a href="#" class="gallery-item gallery-item4">
+          </div>
+          <div class="gallery-item gallery-item4 gallery-open" data-id="gallery-modal4">
             <div class="white-bg">
               <p>ゴリラの横顔に見える山？</p>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -157,10 +157,10 @@
         <h2>NEWS</h2>
         <div class="news-container">
           <ul class="news-tabs">
-            <li class="active" data-id="title-news"><button type="button">What’s NEW</button></li>
-            <li data-id="title-topic"><button type="button">TOPIC</button></li>
+            <li><button type="button" data-id="news-content" class="active">What’s NEW</button></li>
+            <li><button type="button" data-id="topic-content">TOPIC</button></li>
           </ul>
-          <article class="content active" id="title-news">
+          <article class="content active" id="news-content">
             <dl>
               <dt>2026/07/06</dt>
               <dd><a href="#contact">夏の絶景ハイキングツアー受付開始</a></dd>
@@ -174,7 +174,7 @@
               <dd>ニュースです。ニュースです。ニュースです。ニュースです。ニュースです。ニュースです。</dd>
             </dl>
           </article>
-          <article class="content" id="title-topic">
+          <article class="content" id="topic-content">
             <dl>
               <dt>2026/07/06</dt>
               <dd><a href="#contact">上高地開山のお知らせ</a></dd>
@@ -194,7 +194,7 @@
           <p>上高地の魅力的な絶景を見に行きませんか？</p>
         </div>
         <div class="contact-form">
-          <button type="button" class="contact-btn">ツアーを申し込む</button>
+          <button type="button" class="contact-btn" id="contact-open">ツアーを申し込む</button>
         </div>
       </div>
     </section>
@@ -218,6 +218,34 @@
       <small>© 2026 KAMIKOCHI OUTDOOR TRAVEL</small>
     </div>
   </footer>
+
+  <div id="mask" class="hidden"></div>
+
+  <div class="gallery-modal hidden" id="gallery-modal1">
+    <img src="images/gallery-01.png" alt="遊歩道に設置された熊鈴">
+    <p>散策路にはいくつか熊対策の大きな鈴が設置されていました。</p>
+    <button type="button" class="gallery-close">閉じる</button>
+  </div>
+  <div class="gallery-modal hidden" id="gallery-modal2">
+    <img src="images/gallery-02.png" alt="小人のようなコケ">
+    <p>散策中に見つけたものです。言われてみれば何かの形に見えてきませんか？</p>
+    <button type="button" class="gallery-close">閉じる</button>
+  </div>
+  <div class="gallery-modal hidden" id="gallery-modal3">
+    <img src="images/gallery-03.png" alt="特別名勝 特別記念物碑">
+    <p>上高地は特別名勝 特別記念物に指定されています。立派な石碑がありました。</p>
+    <button type="button" class="gallery-close">閉じる</button>
+  </div>
+  <div class="gallery-modal hidden" id="gallery-modal4">
+    <img src="images/gallery-04.png" alt="ゴリラの横顔に見える山？">
+    <p>上高地のバスターミナルで添乗員さんにゴリラの横顔に見えるんですよと教えていただきました。</p>
+    <button type="button" class="gallery-close">閉じる</button>
+  </div>
+
+  <div id="contact-modal" class="hidden">
+    <div><span id="contact-close">＋</span></div>
+    <p>ダミーサイトのため申し込みフォームはありません。</p>
+  </div>
 
   <script src="main.js"></script>
 </body>
