@@ -16,6 +16,7 @@ html {
 body {
   margin: 0;
   height: 100%;
+  overflow-x: hidden;
 }
 
 * {
@@ -39,6 +40,12 @@ ul {
 
 img {
   vertical-align: bottom;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #1f4f48;
+  outline-offset: 4px;
 }
 
 #mask {
@@ -83,6 +90,48 @@ img {
   color: white;
 }
 
+/* Modal */
+.modal {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  z-index: 100;
+  width: 900px;
+  height: auto;
+  max-height: calc(100vh - 80px);
+  padding: 32px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.modal p {
+  margin-top: 16px;
+  font-size: 1.6em;
+}
+
+.modal-close {
+  border: none;
+  display: inline-block;
+  width: 200px;
+  margin-top: 24px;
+  padding: 16px;
+  color: white;
+  background: var(--corporate-color);
+  border-radius: 8px;
+  font-size: 1.4em;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.modal-close:hover {
+  background: #9CCAC2;
+  transform: translateY(2px);
+}
+
 /* HERO */
 #hero {
   position: relative;
@@ -91,7 +140,7 @@ img {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: url(images/hero.png) center/ cover no-repeat;
+  background: url(images/hero.webp) center/ cover no-repeat;
 }
 
 #hero header {
@@ -183,18 +232,19 @@ img {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(500px);
-  transition: transform 0.8s;
+  transform: translateX(100%);
+  transition: transform 0.8s, opacity 0.8s;
 }
 
 .overlay.show {
   opacity: 1;
-  visibility:visible;
+  visibility: visible;
   pointer-events: auto;
   transform: translateX(0);
 }
 
 #hamburger-menu #menu-close {
+  border: none;
   position: absolute;
   top: 0;
   left: -95px;
@@ -202,42 +252,24 @@ img {
   background: rgba(0, 0, 0, 0.4);
   padding: 16px 32px;
   color: white;
+  cursor: pointer;
 }
 
-#hamburger-menu ul li + li{
+#hamburger-menu ul li+li {
   margin-top: 16px;
 }
 
 #hamburger-menu ul li a {
   position: relative;
   display: inline-block;
-  padding-left: 16px;
   font-size: 2.4em;
   text-decoration: none;
   color: white;
   transition: transform 0.3s;
 }
 
-#hamburger-menu ul li a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 4px;
-  height: 24px;
-  background: var(--corporate-color);
-  transform: translateY(-50%) scale(0);
-  opacity: 0;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
 #hamburger-menu ul li a:hover {
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
-}
-
-#hamburger-menu ul li a:hover::before {
-  transform: translateY(-50%) scale(1);
-  opacity: 1;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
 }
 
 /* ABOUT */
@@ -273,7 +305,7 @@ img {
   display: flex;
   justify-content: start;
   gap: 16px;
-  font-size: 16px;
+  font-size: 1.6em;
   color: #D8D8D8;
 }
 
@@ -304,6 +336,8 @@ img {
 #tour-plan .inner .course .course-item {
   text-decoration: none;
   transition: transform 0.3s;
+  width: 100%;
+  text-align: center;
 }
 
 #tour-plan .inner .course .course-item:hover {
@@ -315,10 +349,12 @@ img {
 }
 
 #tour-plan .inner .course .course-item img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
+  aspect-ratio: 1;
 }
 
 #tour-plan .inner .course .course-item p {
@@ -339,48 +375,53 @@ img {
   gap: 24px;
   place-content: center;
   grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(3, 240px);
 }
 
 #popular-spot .inner .grid-container .grid-item1 {
-  background: url(images/popular-spot-01.png) center/cover no-repeat;
+  background: url(images/popular-spot-01.webp) center/cover no-repeat;
   grid-column: 1 / 3;
   grid-row: 1 / 3;
 }
 
 #popular-spot .inner .grid-container .grid-item2 {
-  background: url(images/popular-spot-02.png) center/cover no-repeat;
+  background: url(images/popular-spot-02.webp) center/cover no-repeat;
   grid-column: 3;
   grid-row: 1 / 3;
 }
 
 #popular-spot .inner .grid-container .grid-item3 {
-  background: url(images/popular-spot-03.png) center/cover no-repeat;
+  background: url(images/popular-spot-03.webp) center/cover no-repeat;
 }
 
 #popular-spot .inner .grid-container .grid-item4 {
-  background: url(images/popular-spot-04.png) center/cover no-repeat;
+  background: url(images/popular-spot-04.webp) center/cover no-repeat;
   grid-column: 4;
   grid-row: 2 / 4;
 }
 
 #popular-spot .inner .grid-container .grid-item5 {
-  background: url(images/popular-spot-05.png) center/cover no-repeat;
+  background: url(images/popular-spot-05.webp) center/cover no-repeat;
 }
 
 #popular-spot .inner .grid-container .grid-item6 {
-  background: url(images/popular-spot-06.png) center/cover no-repeat;
+  background: url(images/popular-spot-06.webp) center/cover no-repeat;
   grid-column: 2 / 4;
   grid-row: 3;
 }
 
 #popular-spot .inner .grid-container .grid-item {
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+  font-size: 1em;
   display: flex;
   justify-content: center;
   align-items: end;
   text-decoration: none;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 #popular-spot .inner .grid-container .grid-item:hover {
@@ -388,51 +429,23 @@ img {
 }
 
 #popular-spot .inner .grid-container .grid-item .black-bg {
+  display: block;
   width: 100%;
   padding: 16px;
   background: rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
-#popular-spot .inner .grid-container .grid-item .black-bg p {
+#popular-spot .inner .grid-container .grid-item .black-bg span {
   color: white;
   font-size: 1.6em;
 }
 
 /* Popular Spot Modal */
-.popular-spot-modal {
-  position: fixed;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;
-  background: white;
-  padding: 32px;
-  border-radius: 8px;
-  text-align: center;
-  z-index: 100;
-}
-
 .popular-spot-modal img {
   width: 100%;
-  height: 600px;
+  height: auto;
   object-fit: cover;
-}
-.popular-spot-modal  p {
-  font-size: 1.6em;
-  margin-top: 16px;
-}
-
-.popular-spot-close {
-  all: unset;
-  font-size: 1.4em;
-  padding: 16px;
-  background: var(--corporate-color);
-  border-radius: 8px;
-  color: white;
-  width: 200px;
-  display: inline-block;
-  margin-top: 24px;
-  cursor: pointer;
 }
 
 /* Gallery */
@@ -448,12 +461,15 @@ img {
 }
 
 #gallery .inner .gallery-container .gallery-item {
+  border: none;
+  padding: 0;
+  font-size: 1em;
+  background: none;
+  cursor: pointer;
   width: 100%;
   height: 320px;
   display: flex;
-  justify-content: center;
   align-items: end;
-  text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
 }
@@ -463,68 +479,39 @@ img {
 }
 
 #gallery .inner .gallery-container .gallery-item .white-bg {
+  display: block;
   background: white;
   width: 100%;
   padding: 24px;
   text-align: center;
 }
 
-#gallery .inner .gallery-container .gallery-item .white-bg p {
+#gallery .inner .gallery-container .gallery-item .white-bg span {
   font-size: 1.6em;
   color: #000;
 }
 
 #gallery .inner .gallery-container .gallery-item1 {
-  background: url(images/gallery-01.png) center/cover no-repeat;
+  background: url(images/gallery-01.webp) center/cover no-repeat;
 }
 
 #gallery .inner .gallery-container .gallery-item2 {
-  background: url(images/gallery-02.png) center/cover no-repeat;
+  background: url(images/gallery-02.webp) center/cover no-repeat;
 }
 
 #gallery .inner .gallery-container .gallery-item3 {
-  background: url(images/gallery-03.png) center/cover no-repeat;
+  background: url(images/gallery-03.webp) center/cover no-repeat;
 }
 
 #gallery .inner .gallery-container .gallery-item4 {
-  background: url(images/gallery-04.png) center/cover no-repeat;
+  background: url(images/gallery-04.webp) center/cover no-repeat;
 }
 
 /* Gallery Modal */
-.gallery-modal {
-  position: fixed;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;
-  background: white;
-  padding: 32px;
-  border-radius: 8px;
-  text-align: center;
-  z-index: 100;
-}
-
 .gallery-modal img {
   width: 500px;
-  height: 500px;
+  height: auto;
   object-fit: cover;
-}
-.gallery-modal  p {
-  font-size: 1.6em;
-  margin-top: 16px;
-}
-
-.gallery-close {
-  all: unset;
-  font-size: 1.4em;
-  padding: 16px;
-  background: var(--corporate-color);
-  border-radius: 8px;
-  color: white;
-  width: 200px;
-  display: inline-block;
-  margin-top: 24px;
-  cursor: pointer;
 }
 
 /* NEWS */
@@ -537,6 +524,7 @@ img {
 #news .inner h2 {
   font-size: 3.6em;
   font-family: var(--font-title);
+  font-weight: 700;
   margin-right: 40px;
 }
 
@@ -551,12 +539,16 @@ img {
 }
 
 #news .inner .news-container .news-tabs li button {
-  all: unset;
+  border: none;
+  padding: 0;
+  background: none;
   display: inline-block;
   font-size: 2.4em;
+  font-weight: 700;
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 #news .inner .news-container .news-tabs li button:hover {
@@ -584,7 +576,7 @@ img {
   transform: translateY(-10px);
   border-top: 1px solid var(--corporate-color);
   border-bottom: 1px solid var(--corporate-color);
-  transition: transform 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
   width: 100%;
   height: auto;
 }
@@ -617,7 +609,7 @@ img {
 /* Contact */
 #contact {
   position: relative;
-  background: url(images/Contact.png) center/cover no-repeat;
+  background: url(images/contact.webp) center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -653,7 +645,7 @@ img {
 }
 
 #contact .inner .contact-form button {
-  all: unset;
+  border: none;
   display: inline-block;
   width: 500px;
   padding: 16px;
@@ -663,6 +655,7 @@ img {
   border-radius: 8px;
   text-decoration: none;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 #contact .inner .contact-form button:hover {
@@ -695,6 +688,8 @@ img {
 }
 
 #contact-close {
+  border: none;
+  background: none;
   display: inline-block;
   font-size: 2.4em;
   padding: 4px;
@@ -704,7 +699,7 @@ img {
   right: 4px;
 }
 
-#contact-modal > p {
+#contact-modal>p {
   font-size: 1.6em;
   text-align: center;
 }
@@ -728,7 +723,7 @@ footer .footer-title {
 footer h2 {
   font-family: var(--font-title);
   font-size: 3.6em;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 footer .footer-contact {
@@ -737,13 +732,12 @@ footer .footer-contact {
   margin: 16px auto 0;
 }
 
-footer .footer-contact h3 {
+footer .footer-contact h3,
+footer .footer-contact p {
   font-weight: 400;
   font-size: 1.6em;
-}
-
-footer .footer-contact p {
-  font-size: 1.6em;
+  line-height: 2.4;
+  letter-spacing: 0.1em;
 }
 
 footer .footer-sns {
@@ -771,4 +765,307 @@ footer small {
   display: block;
   margin-top: 80px;
   font-size: 1.4em;
+}
+
+@media (max-width: 600px) {
+
+  /* HERO以下のコンテンツ幅 */
+  .inner {
+    padding: 120px 16px;
+  }
+
+  /* 一部セクションタイトル */
+  .section-title i {
+    font-size: 2.4em;
+  }
+
+  .section-title h2 {
+    font-size: 2.4em;
+  }
+
+  /* Modal */
+  .modal {
+    width: calc(100% - 16px - 16px);
+  }
+
+  /* HERO */
+  #hero {
+    background: url(images/hero-sp.webp) center/ cover no-repeat;
+  }
+
+  #hero header {
+    height: auto;
+  }
+
+  #hero header .logo {
+    padding: 20px;
+  }
+
+  #hero header .logo a img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #hero .hero-text {
+    top: 90px;
+    left: 16px;
+  }
+
+  #hero .hero-text h1 {
+    font-size: 3.2em;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #hero .hero-text p {
+    font-size: 1.6em;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #hero .hero-text .tour-form {
+    font-size: 1.4em;
+    padding: 16px 20px;
+    border: 2px solid #fff;
+    margin-top: 40px;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hamburger Menu */
+  #hero header #menu {
+    padding: 4px;
+    margin: 20px;
+  }
+
+  #hero header #menu i.active {
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  }
+
+  .overlay {
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+  }
+
+  #hamburger-menu #menu-close {
+    left: auto;
+    right: 0;
+    font-size: 2.5em;
+    background: none;
+    padding: 16px 32px;
+  }
+
+  #hamburger-menu ul li a img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #hamburger-menu ul li a {
+    font-size: 2.0em;
+  }
+
+  #hamburger-menu ul li a:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+  }
+
+  /* ABOUT */
+  #about .inner {
+    flex-direction: column;
+  }
+
+  #about .inner .about-text {
+    min-width: 100%;
+  }
+
+  #about .inner .about-text h2 {
+    font-size: 2.4em;
+  }
+
+  #about .inner .about-text ul.tags {
+    gap: 10px;
+    font-size: 1.4em;
+  }
+
+  #about .inner .about-text ul.tags .tag {
+    padding: 4px 10px;
+  }
+
+  #about .inner .about-img {
+    margin-top: 40px;
+  }
+
+  #about .inner .about-img img {
+    width: 100%;
+  }
+
+  /* Tour-Plan */
+  #tour-plan .inner .course {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    justify-items: center;
+  }
+
+  #tour-plan .inner .course .course-item+.course-item {
+    margin-left: 0;
+  }
+
+  #tour-plan .inner .course .course-item img {
+    max-width: 160px;
+  }
+
+  #tour-plan .inner .course .course-item p {
+    margin: 12px 0 40px;
+  }
+
+  /* Popular-Spot */
+  #popular-spot .inner .grid-container {
+    margin-top: 40px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(6, 260px);
+    gap: 32px;
+  }
+
+  #popular-spot .inner .grid-container .grid-item1 {
+    background: url(images/popular-spot-01-sp.webp) center/cover no-repeat;
+    grid-column: span 2;
+    grid-row: span 2;
+    order: 1;
+  }
+
+  #popular-spot .inner .grid-container .grid-item2 {
+    background: url(images/popular-spot-02-sp.webp) center/cover no-repeat;
+    grid-column: span 1;
+    grid-row: span 2;
+    order: 2;
+  }
+
+  #popular-spot .inner .grid-container .grid-item3 {
+    background: url(images/popular-spot-03-sp.webp) center/cover no-repeat;
+    order: 4;
+  }
+
+  #popular-spot .inner .grid-container .grid-item4 {
+    background: url(images/popular-spot-04-sp.webp) center/cover no-repeat;
+    grid-column: span 1;
+    grid-row: span 2;
+    order: 3;
+  }
+
+  #popular-spot .inner .grid-container .grid-item5 {
+    background: url(images/popular-spot-05-sp.webp) center/cover no-repeat;
+    order: 5;
+  }
+
+  #popular-spot .inner .grid-container .grid-item6 {
+    background: url(images/popular-spot-06-sp.webp) center/cover no-repeat;
+    grid-column: span 2;
+    grid-row: span 1;
+    order: 6;
+  }
+
+  /* Popular Spot Modal */
+  .popular-spot-modal img {
+    height: auto;
+  }
+
+  /* Gallery */
+  #gallery .inner .gallery-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  #gallery .inner .gallery-container .gallery-item1 {
+    background: url(images/gallery-01-sp.webp) center/cover no-repeat;
+  }
+
+  #gallery .inner .gallery-container .gallery-item2 {
+    background: url(images/gallery-02-sp.webp) center/cover no-repeat;
+  }
+
+  #gallery .inner .gallery-container .gallery-item3 {
+    background: url(images/gallery-03-sp.webp) center/cover no-repeat;
+  }
+
+  #gallery .inner .gallery-container .gallery-item4 {
+    background: url(images/gallery-04-sp.webp) center/cover no-repeat;
+  }
+
+  /* Gallery Modal */
+  .gallery-modal img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* NEWS */
+  #news .inner {
+    flex-direction: column;
+  }
+
+  #news .inner h2 {
+    font-size: 2.4em;
+    margin-right: 0;
+  }
+
+  #news .inner .news-container {
+    width: 100%;
+    position: relative;
+    min-height: 320px;
+    margin-top: 40px;
+  }
+
+  #news .inner .news-container .news-tabs li button {
+    font-size: 2.0em;
+  }
+
+  /* Contact */
+  #contact {
+    background: url(images/contact-sp.webp) center/cover no-repeat;
+  }
+
+  #contact .inner {
+    flex-direction: column;
+  }
+
+  #contact .inner .contact-form {
+    margin-top: 40px;
+  }
+
+  #contact .inner .contact-form button {
+    width: 250px;
+    padding: 16px;
+  }
+
+  /* contact modal */
+
+  #contact-modal {
+    top: 80px;
+    right: 0;
+    width: calc(100% - 16px - 16px);
+    padding: 40px 16px;
+  }
+
+  #contact-close {
+    font-size: 2.4em;
+    top: 4px;
+  }
+
+  /* Footer */
+  footer .inner {
+    padding: 60px 16px 32px;
+  }
+
+  footer h2 {
+    font-size: 2.0em;
+  }
+
+  footer .footer-sns {
+    margin-top: 40px;
+  }
+
+  footer small {
+    margin-top: 40px;
+  }
 }

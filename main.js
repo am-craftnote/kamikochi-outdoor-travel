@@ -20,7 +20,7 @@
   menuItem.forEach(item => {
     item.addEventListener('click', () => {
       overlay.classList.remove('show');
-      menuOpen.classList.remove('hide')
+      menuOpen.classList.remove('hide');
     });
   });
 
@@ -31,11 +31,7 @@
 
       mask.classList.add('hidden');
 
-      document.querySelectorAll('.gallery-modal').forEach(modal => {
-        modal.classList.add('hidden');
-      });
-
-      document.querySelectorAll('.popular-spot-modal').forEach(modal => {
+      document.querySelectorAll('.modal').forEach(modal => {
         modal.classList.add('hidden');
       });
 
@@ -48,47 +44,26 @@
 
   mask.addEventListener('click', () => {
     mask.classList.add('hidden');
-    document.querySelectorAll('.gallery-modal').forEach(modal => {
-      modal.classList.add('hidden');
-    });
-    document.querySelectorAll('.popular-spot-modal').forEach(modal => {
+    document.querySelectorAll('.modal').forEach(modal => {
       modal.classList.add('hidden');
     });
     contactModal.classList.add('hidden');
   });
 
-  // Popular Spot Modal
-  const popularSpotOpen = document.querySelectorAll('.popular-spot-open');
-  const popularSpotClose = document.querySelectorAll('.popular-spot-close');
+  // Modal
+  const modalOpen = document.querySelectorAll('.modal-open');
+  const modalClose = document.querySelectorAll('.modal-close');
 
-  popularSpotOpen.forEach(clickedItem => {
+  modalOpen.forEach(clickedItem => {
     clickedItem.addEventListener('click', () => {
       const modal = document.querySelector('#' + clickedItem.dataset.id);
       modal.classList.remove('hidden');
       mask.classList.remove('hidden');
     });
   });
-  popularSpotClose.forEach(closeButton => {
+  modalClose.forEach(closeButton => {
     closeButton.addEventListener('click', () => {
-      closeButton.closest('.popular-spot-modal').classList.add('hidden');
-      mask.classList.add('hidden');
-    });
-  });
-
-  // Gallery Modal
-  const galleryOpen = document.querySelectorAll('.gallery-open');
-  const galleryClose = document.querySelectorAll('.gallery-close');
-
-  galleryOpen.forEach(clickedItem => {
-    clickedItem.addEventListener('click', () => {
-      const modal = document.querySelector('#' + clickedItem.dataset.id);
-      modal.classList.remove('hidden');
-      mask.classList.remove('hidden');
-    });
-  });
-  galleryClose.forEach(closeButton => {
-    closeButton.addEventListener('click', () => {
-      closeButton.closest('.gallery-modal').classList.add('hidden');
+      closeButton.closest('.modal').classList.add('hidden');
       mask.classList.add('hidden');
     });
   });
@@ -96,11 +71,10 @@
 
   // NEWS
   const tabsButton = document.querySelectorAll('.news-tabs li button');
-  const newsContents = document.querySelectorAll('.news-container .content')
+  const newsContents = document.querySelectorAll('.news-container .content');
 
   tabsButton.forEach(clickButton => {
-    clickButton.addEventListener('click', (e) => {
-      e.preventDefault();
+    clickButton.addEventListener('click', () => {
 
       tabsButton.forEach(tabButton => {
         tabButton.classList.remove('active');

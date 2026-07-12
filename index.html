@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Noto+Sans+JP:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="style.css">
@@ -18,13 +18,16 @@
     <header>
       <div class="logo"><a href="#hero"><img src="images/logo.svg" width="80" height="80"
             alt="KAMIKOCHI OUTDOOR TRAVEL ロゴ"></a></div>
-      <button id="menu" type="button">
-        <i class="bi bi-list active" id="menu-open"></i>
+      <button id="menu" type="button" aria-label="メニューを開く">
+        <i class="bi bi-list active" id="menu-open" aria-hidden="true"></i>
       </button>
     </header>
     <nav class="overlay" id="hamburger-menu">
-      <i class="bi bi-x-lg" id="menu-close"></i>
+      <button type="button" id="menu-close" aria-label="メニューを閉じる">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
       <ul>
+        <li><a href="#hero"><img src="images/logo.svg" width="40" height="40" alt="KAMIKOCHI OUTDOOR TRAVEL ロゴ"></a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#tour-plan">旅の目的・テーマから選ぶ</a></li>
         <li><a href="#popular-spot">人気スポットを知る</a></li>
@@ -58,7 +61,7 @@
           </ul>
         </div>
         <div class="about-img">
-          <img src="images/about.png" alt="手すり付きの遊歩道">
+          <img src="images/about.webp" alt="手すり付きの遊歩道">
         </div>
       </div>
     </section>
@@ -70,27 +73,27 @@
         </div>
         <div class="course">
           <a href="#contact" class="course-item">
-            <img src="images/tour-plan-01.png" alt="上高地の木道を歩くハイキング風景">
+            <img src="images/tour-plan-01.webp" alt="上高地の木道を歩くハイキング風景">
             <p>ハイキング<br>初心者向けコース</p>
           </a>
           <a href="#contact" class="course-item">
-            <img src="images/tour-plan-02.png" alt="日に照らされる穂高連峰">
+            <img src="images/tour-plan-02.webp" alt="日に照らされる穂高連峰">
             <p>絶景<br>人気スポット巡り</p>
           </a>
           <a href="#contact" class="course-item">
-            <img src="images/tour-plan-03.png" alt="上高地名物、河童焼き">
+            <img src="images/tour-plan-03.webp" alt="上高地名物、河童焼き">
             <p>グルメ旅<br>名物を味わう</p>
           </a>
           <a href="#contact" class="course-item">
-            <img src="images/tour-plan-04.png" alt="エメラルドグリーンの梓川">
+            <img src="images/tour-plan-04.webp" alt="エメラルドグリーンの梓川">
             <p>梓川<br>清流を歩く</p>
           </a>
           <a href="#contact" class="course-item">
-            <img src="images/tour-plan-05.png" alt="上高地の高山植物">
+            <img src="images/tour-plan-05.webp" alt="上高地の高山植物">
             <p>高山植物<br>四季の景色を楽しむ</p>
           </a>
           <a href="#contact" class="course-item">
-            <img src="images/tour-plan-06.png" alt="上高地温泉ホテルの足湯">
+            <img src="images/tour-plan-06.webp" alt="上高地温泉ホテルの足湯">
             <p>足湯<br>旅の疲れを癒やす</p>
           </a>
         </div>
@@ -103,36 +106,36 @@
           <h2>人気スポットを知る</h2>
         </div>
         <div class="grid-container">
-          <div class="grid-item grid-item1 popular-spot-open" data-id="popular-spot-modal1">
-            <div class="black-bg">
-              <p>河童橋　|　必ず押さえておきたい、絶景のフォトスポット</p>
-            </div>
-          </div>
-          <div class="grid-item grid-item2 popular-spot-open" data-id="popular-spot-modal2">
-            <div class="black-bg">
-              <p>穂高連峰　|　上高地に来たなら絶対見ておきたい</p>
-            </div>
-          </div>
-          <div class="grid-item grid-item3 popular-spot-open" data-id="popular-spot-modal3">
-            <div class="black-bg">
-              <p>田代橋・穂高橋　|　橋上に佇み、梓川を感じる</p>
-            </div>
-          </div>
-          <div class="grid-item grid-item4 popular-spot-open" data-id="popular-spot-modal4">
-            <div class="black-bg">
-              <p>霞沢橋　|　田代橋、穂高橋の傍らにある木造のかわいらしい橋</p>
-            </div>
-          </div>
-          <div class="grid-item grid-item5 popular-spot-open" data-id="popular-spot-modal5">
-            <div class="black-bg">
-              <p>ウェストン碑　|　梓川のほとりにある隠れた写真スポット</p>
-            </div>
-          </div>
-          <div class="grid-item grid-item6 popular-spot-open" data-id="popular-spot-modal6">
-            <div class="black-bg">
-              <p>焼岳　|　大正池から見上げる焼岳は四季によって表情が変わります</p>
-            </div>
-          </div>
+          <button type="button" class="grid-item grid-item1 modal-open" data-id="popular-spot-modal1">
+            <span class="black-bg">
+              <span>河童橋　|　必ず押さえておきたい、絶景のフォトスポット</span>
+            </span>
+          </button>
+          <button type="button" class="grid-item grid-item2 modal-open" data-id="popular-spot-modal2">
+            <span class="black-bg">
+              <span>穂高連峰　|　上高地に来たなら絶対見ておきたい</span>
+            </span>
+          </button>
+          <button type="button" class="grid-item grid-item3 modal-open" data-id="popular-spot-modal3">
+            <span class="black-bg">
+              <span>田代橋・穂高橋　|　橋上に佇み、梓川を感じる</span>
+            </span>
+          </button>
+          <button type="button" class="grid-item grid-item4 modal-open" data-id="popular-spot-modal4">
+            <span class="black-bg">
+              <span>霞沢橋　|　田代橋、穂高橋の傍らにある木造のかわいらしい橋</span>
+            </span>
+          </button>
+          <button type="button" class="grid-item grid-item5 modal-open" data-id="popular-spot-modal5">
+            <span class="black-bg">
+              <span>ウェストン碑　|　梓川のほとりにある隠れた写真スポット</span>
+            </span>
+          </button>
+          <button type="button" class="grid-item grid-item6 modal-open" data-id="popular-spot-modal6">
+            <span class="black-bg">
+              <span>焼岳　|　大正池から見上げる焼岳は四季によって表情が変わります</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
@@ -143,26 +146,26 @@
           <h2>Gallery</h2>
         </div>
         <div class="gallery-container">
-          <div class="gallery-item gallery-item1 gallery-open" data-id="gallery-modal1">
-            <div class="white-bg">
-              <p>遊歩道に設置された巨大な鈴！</p>
-            </div>
-          </div>
-          <div class="gallery-item gallery-item2 gallery-open" data-id="gallery-modal2">
-            <div class="white-bg">
-              <p>小人のようなコケ</p>
-            </div>
-          </div>
-          <div class="gallery-item gallery-item3 gallery-open" data-id="gallery-modal3">
-            <div class="white-bg">
-              <p>特別名勝 特別記念物碑</p>
-            </div>
-          </div>
-          <div class="gallery-item gallery-item4 gallery-open" data-id="gallery-modal4">
-            <div class="white-bg">
-              <p>ゴリラの横顔に見える山？</p>
-            </div>
-          </div>
+          <button type="button" class="gallery-item gallery-item1 modal-open" data-id="gallery-modal1">
+            <span class="white-bg">
+              <span>遊歩道に設置された巨大な鈴！</span>
+            </span>
+          </button>
+          <button type="button" class="gallery-item gallery-item2 modal-open" data-id="gallery-modal2">
+            <span class="white-bg">
+              <span>小人のようなコケ</span>
+            </span>
+          </button>
+          <button type="button" class="gallery-item gallery-item3 modal-open" data-id="gallery-modal3">
+            <span class="white-bg">
+              <span>特別名勝 特別記念物碑</span>
+            </span>
+          </button>
+          <button type="button" class="gallery-item gallery-item4 modal-open" data-id="gallery-modal4">
+            <span class="white-bg">
+              <span>ゴリラの横顔に見える山？</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
@@ -235,60 +238,60 @@
 
   <div id="mask" class="hidden"></div>
 
-  <div class="popular-spot-modal hidden" id="popular-spot-modal1">
-    <img src="images/popular-spot-01.png" alt="河童橋">
+  <div class="modal popular-spot-modal hidden" id="popular-spot-modal1">
+    <img src="images/popular-spot-01-modal.webp" alt="河童橋">
     <p>河童橋　|　必ず押さえておきたい、絶景のフォトスポット</p>
-    <button type="button" class="popular-spot-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="popular-spot-modal hidden" id="popular-spot-modal2">
-    <img src="images/popular-spot-02.png" alt="穂高連峰">
+  <div class="modal popular-spot-modal hidden" id="popular-spot-modal2">
+    <img src="images/popular-spot-02-modal.webp" alt="穂高連峰">
     <p>穂高連峰　|　上高地に来たなら絶対見ておきたい</p>
-    <button type="button" class="popular-spot-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="popular-spot-modal hidden" id="popular-spot-modal3">
-    <img src="images/popular-spot-03.png" alt="田代橋・穂高橋">
+  <div class="modal popular-spot-modal hidden" id="popular-spot-modal3">
+    <img src="images/popular-spot-03-modal.webp" alt="田代橋・穂高橋">
     <p>田代橋・穂高橋　|　橋上に佇み、梓川を感じる</p>
-    <button type="button" class="popular-spot-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="popular-spot-modal hidden" id="popular-spot-modal4">
-    <img src="images/popular-spot-04.png" alt="霞沢橋">
+  <div class="modal popular-spot-modal hidden" id="popular-spot-modal4">
+    <img src="images/popular-spot-04-modal.webp" alt="霞沢橋">
     <p>霞沢橋　|　田代橋、穂高橋の傍らにある木造のかわいらしい橋</p>
-    <button type="button" class="popular-spot-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="popular-spot-modal hidden" id="popular-spot-modal5">
-    <img src="images/popular-spot-05.png" alt="ウェストン碑">
+  <div class="modal popular-spot-modal hidden" id="popular-spot-modal5">
+    <img src="images/popular-spot-05-modal.webp" alt="ウェストン碑">
     <p>ウェストン碑　|　梓川のほとりにある隠れた写真スポット</p>
-    <button type="button" class="popular-spot-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="popular-spot-modal hidden" id="popular-spot-modal6">
-    <img src="images/popular-spot-06.png" alt="焼岳">
+  <div class="modal popular-spot-modal hidden" id="popular-spot-modal6">
+    <img src="images/popular-spot-06-modal.webp" alt="焼岳">
     <p>焼岳　|　大正池から見上げる焼岳は四季によって表情が変わります</p>
-    <button type="button" class="popular-spot-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
 
-  <div class="gallery-modal hidden" id="gallery-modal1">
-    <img src="images/gallery-01.png" alt="遊歩道に設置された熊鈴">
+  <div class="modal gallery-modal hidden" id="gallery-modal1">
+    <img src="images/gallery-01.webp" alt="遊歩道に設置された熊鈴">
     <p>散策路にはいくつか熊対策の大きな鈴が設置されていました。</p>
-    <button type="button" class="gallery-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="gallery-modal hidden" id="gallery-modal2">
-    <img src="images/gallery-02.png" alt="小人のようなコケ">
+  <div class="modal gallery-modal hidden" id="gallery-modal2">
+    <img src="images/gallery-02.webp" alt="小人のようなコケ">
     <p>散策中に見つけたものです。言われてみれば何かの形に見えてきませんか？</p>
-    <button type="button" class="gallery-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="gallery-modal hidden" id="gallery-modal3">
-    <img src="images/gallery-03.png" alt="特別名勝 特別記念物碑">
+  <div class="modal gallery-modal hidden" id="gallery-modal3">
+    <img src="images/gallery-03.webp" alt="特別名勝 特別記念物碑">
     <p>上高地は特別名勝 特別記念物に指定されています。立派な石碑がありました。</p>
-    <button type="button" class="gallery-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
-  <div class="gallery-modal hidden" id="gallery-modal4">
-    <img src="images/gallery-04.png" alt="ゴリラの横顔に見える山？">
+  <div class="modal gallery-modal hidden" id="gallery-modal4">
+    <img src="images/gallery-04.webp" alt="ゴリラの横顔に見える山？">
     <p>上高地のバスターミナルで添乗員さんにゴリラの横顔に見えるんですよと教えていただきました。</p>
-    <button type="button" class="gallery-close">閉じる</button>
+    <button type="button" class="modal-close">閉じる</button>
   </div>
 
   <div id="contact-modal" class="hidden">
-    <div><span id="contact-close">＋</span></div>
+    <button type="button" id="contact-close" aria-label="閉じる">＋</button>
     <p>ダミーサイトのため申し込みフォームはありません。</p>
   </div>
 
